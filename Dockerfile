@@ -1,5 +1,8 @@
 FROM sharelatex/sharelatex:v1.2.1
 
+# Set the new PATH for TeX Live 2018
+ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/texlive/2018/bin/x86_64-linux/
+
 # Copy the previous TeX Live environment
 RUN cd /usr/local/texlive ; \
     cp -a 2017 2018
@@ -11,5 +14,5 @@ RUN cd /usr/local/texlive/2018 ; \
     sh update-tlmgr-latest.sh  -- --upgrade ; \
     tlmgr update --self --all
 
-# Set the new PATH for Tex Live 2018
+# Ensure Sharelatex can use TeX Live 2018
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/texlive/2018/bin/x86_64-linux/
