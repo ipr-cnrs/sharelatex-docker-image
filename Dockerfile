@@ -8,3 +8,6 @@ RUN cd /usr/local/texlive ; \
     wget --quiet -- http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh ; \
     sh update-tlmgr-latest.sh  -- --upgrade ; \
     tlmgr update --self --all
+
+# Set a new PATH for Tex Live 2018
+ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/texlive/2018/bin/x86_64-linux/
